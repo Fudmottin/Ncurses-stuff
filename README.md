@@ -15,10 +15,9 @@ version for UTF-8 support. I’m using it to work through *Dan Gookin’s Guide 
 
 ## Book & Resources
 
-- *Dan Gookin’s Guide to Ncurses Programming* ISBN 978-1549682575 — this is the main
-  guide I’m following. :contentReference[oaicite:0]{index=0}  
-- Publisher info: Wiley has a page for *Programmer’s Guide to NCurses*. :contentReference[oaicite:1]{index=1}  
-- There is example C code from the book available online. :contentReference[oaicite:2]{index=2}  
+- *Dan Gookin’s Guide to Ncurses Programming* ISBN 978-1549682575 — main guide for learning ncurses.
+- Publisher info: Wambooli Press has a page for *Programmer’s Guide to NCurses*.
+- Example C code from the book is available online: [https://c-for-dummies.com/ncurses/](https://c-for-dummies.com/ncurses/)
 
 ---
 
