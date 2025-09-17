@@ -58,9 +58,11 @@ function(add_ncurses_program SUBDIR)
         target_compile_definitions(${PROG_NAME} PRIVATE USE_NCURSESW)
         message(STATUS "Using Homebrew ncurses from ${NCURSES_PREFIX}")
     else()
+        # Force the wide library
         find_package(Curses REQUIRED)
         target_include_directories(${PROG_NAME} PRIVATE ${CURSES_INCLUDE_DIR})
-        target_link_libraries(${PROG_NAME} PRIVATE ${CURSES_LIBRARIES} panel)
+        # Replace ${CURSES_LIBRARIES} with the wide libs
+        target_link_libraries(${PROG_NAME} PRIVATE ncursesw panelw)
         target_compile_definitions(${PROG_NAME} PRIVATE USE_NCURSESW)
     endif()
 
@@ -70,7 +72,7 @@ function(add_ncurses_program SUBDIR)
             COMMAND ${CMAKE_COMMAND} -E echo '=== Linked libraries (macOS) ==='
             COMMAND otool -L $<TARGET_FILE:${PROG_NAME}>
         )
-    elseif(UNIX)
+    else()
         add_custom_command(TARGET ${PROG_NAME} POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E echo '=== Linked libraries (Linux) ==='
             COMMAND ldd $<TARGET_FILE:${PROG_NAME}>
